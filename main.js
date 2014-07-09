@@ -27,7 +27,7 @@ function doAsyncWorkWithFiber () {
 var wrapAsyncWorkWithFuture = Future.wrap(doAsyncWork);
 
 function doAsyncWorkWithFuture () {
-  var future = new Future;
+  var future = new Future();
 
   setTimeout(function () {
     future.return('result of work');
@@ -37,9 +37,9 @@ function doAsyncWorkWithFuture () {
 }
 
 var handleRequest = function (i) {
-    print(i, 'handling request');
-    var results = wrapAsyncWorkWithFuture().wait();
-    print(i, 'after doAsyncWorkCall with result ' + results);
+  print(i, 'handling request');
+  var results = wrapAsyncWorkWithFuture().wait();
+  print(i, 'after doAsyncWorkCall with result ' + results);
 }.future();
 
 handleRequest(1);
